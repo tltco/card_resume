@@ -35,7 +35,7 @@
     --rounded-smx: .2rem;
     --rounded-sm: .4rem;
     --rounded-full: 50%;
-    --shadow-dark: 0 0.0625rem 0 rgba(0,0,0,.05);
+    --shadow: 0 0.0625rem 0 rgba(0,0,0,.05);
 }
 
 html{
@@ -53,8 +53,6 @@ html{
 
 a{
     text-decoration: none;
-    font-size: var(--size-sm);
-    font-weight: var(--semibold);
     color: var(--gray-30);
 }
 
@@ -146,39 +144,48 @@ main{
     gap: var(--spacing-1);
 }
 
+.btn{
+    text-align: center;
+    font-size: var(--size-sm);
+    font-weight: var(--medium);
+    background-color: var(--gray-0);
+    border: 1px solid var(--gray-20);
+    border-radius: var(--rounded-sm);
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover{
+    font-weight: var(--semibold);
+    color: var(--gray-0);
+    background-color: var(--accent-20);
+    border: 1px solid var(--accent-20);
+    box-shadow: var(--shadow);
+}
+
+.btn:hover i{
+    display: inline-block;
+    font-size: var(--size-md);
+    animation: tada 2s;
+}
+
+.btn:focus{
+    border: 1px solid var(--accent-20);
+    outline: 3px solid var(--accent-10);
+}
+
 .btn-pill{
+    display: flex;
+    align-items: center;
     padding: .7rem var(--spacing-2);
+    gap: var(--spacing-1);
+    max-height: 2.6rem;
 }
 
 .btn-square{
     width: 2.6rem;
     height: 2.6rem;
     padding: .7rem;
-}
-
-button{
-    font-size: var(--size-nm);
-    font-weight: var(--medium);
-    color: var(--gray-30);
-    background-color: var(--gray-0);
-    border: 1px solid var(--gray-20);
-    border-radius: var(--rounded-sm);
-    cursor:pointer;
-    transition: all 0.25s ease;
-}
-
-button:hover{
-    background-color: var(--accent-20);
-    border: 1px solid var(--accent-20);
-    box-shadow: var(--shadow-dark);
-}
-
-button:hover a{
-    color: var(--gray-0);
-}
-
-button:focus{
-    outline: 4px solid var(--accent-10);
 }
 
 .badges{
@@ -209,7 +216,7 @@ button:focus{
 }
 
 .badges span{
-    margin: .1rem;
+    margin: .2rem;
     padding: .2rem;
     font-size: var(--size-smx);
     font-weight: var(--medium);
@@ -222,7 +229,7 @@ button:focus{
 }
 
 .badges span:hover{
-    box-shadow: var(--shadow-dark);
+    box-shadow: var(--shadow);
     opacity: 1;
 }
 
@@ -253,6 +260,14 @@ button:focus{
     padding-bottom: var(--spacing-3);
     cursor: pointer;
 }
+
+@keyframes tada { 
+    0% {transform: scale(1);} 
+    10%, 20% {transform: scale(0.9) rotate(-3deg);} 
+    30%, 50%, 70%, 90% {transform: scale(1.1) rotate(3deg);} 
+    40%, 60%, 80% {transform: scale(1.1) rotate(-3deg);} 
+    100% {transform: scale(1) rotate(0);}
+ }
 
 @keyframes reveal{
     from { transform: translateY(20px);}
